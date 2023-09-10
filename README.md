@@ -1,0 +1,2 @@
+# kaggle-Child_Mind_Institute-Detect_Sleep_States
+Child_Mind_Institute-Detect_Sleep_Statesコンペのリポジトリ
