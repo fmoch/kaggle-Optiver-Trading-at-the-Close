@@ -1,5 +1,7 @@
 # kaggle Optiver - Trading at the Close
 
+![BOY](https://github.com/fmoch/kaggle-Optiver-Trading-at-the-Close/assets/116940479/abacdaa9-b706-4caa-b73d-408465b7d6b8)
+
 Optiver - Trading at the Closeコンペのリポジトリ
 
 - result
@@ -88,7 +90,11 @@ $ x_i $ はデータ点 $ i $ の観測値。
 |[bid/ask]_size | ノンオークションブックで最も競争力のある買い/売りレベルの想定元本金額。|
 |wap | ノン・オークション・ブックにおける加重平均価格。  $\displaystyle\frac{Bidprice∗AskSize+AskPrice∗BidSize}{BidSize+AskSize}$|
 |seconds_in_bucket | その日の終値オークションの開始からの経過秒数。|
-|target | 銘柄のワップにおける 60 秒後の将来の値動きから、合成指数の 60 秒後の将来の値動きを差し引いた値。列車セットに対してのみ提供される。<br>合成インデックスは、Optiverがこのコンペティションのために構築したナスダック上場銘柄のカスタム加重インデックスである。<br> ターゲットの単位はベーシス・ポイントで、これは金融市場で一般的な測定単位である。<br> 1ベーシスポイントの値動きは0.01%の値動きに相当する。tは現在の観測時間であり、ターゲットを定義することができる：<br>$Target = (\displaystyle\frac{StockWAP_{t+60}}{StockWAP_t}−\displaystyle\frac{IndexWAP_{t+60}}{IndexWAP_t})∗10000$|
+|target | 銘柄のワップにおける 60 秒後の将来の値動きから、合成指数の 60 秒後の将来の値動きを差し引いた値。列車セットに対してのみ提供される。|
+||合成インデックスは、Optiverがこのコンペティションのために構築したナスダック上場銘柄のカスタム加重インデックスである。|
+||ターゲットの単位はベーシス・ポイントで、これは金融市場で一般的な測定単位である。|
+||1ベーシスポイントの値動きは0.01%の値動きに相当する。tは現在の観測時間であり、ターゲットを定義することができる|
+||$Target = (\displaystyle\frac{StockWAP_{t+60}}{StockWAP_t}−\displaystyle\frac{IndexWAP_{t+60}}{IndexWAP_t})∗10000$|
 
 サイズに関する欄はすべて米ドルベースである。
 価格関連の列はすべて、オークション期間開始時の株価 wap (加重平均価格)に対する値動きに変換される。
@@ -112,33 +118,25 @@ $ x_i $ はデータ点 $ i $ の観測値。
 
 |notebook|説明|
 |---|---|
-|[ICR IARC EDA Ensemble and Stacking baseline](https://www.kaggle.com/code/tetsutani/icr-iarc-eda-ensemble-and-stacking-baseline)|ベースライン（仮）|
-|[ICR - EDA & Balanced Learning with LGBM & XGB](https://www.kaggle.com/code/mateuszk013/icr-eda-balanced-learning-with-lgbm-xgb)|EDA参考|
-|[icr-identify-age](https://www.kaggle.com/code/vadimkamaev/icr-identify-age)|Tabpfnを用いたノート, LB上位 (0.11)はこのTabPFN使用している|
+|||
+|||
 
 ## NOTE
+
 
 ### nb
 
 |notebook|CV|PV|説明|
 |---|---|---|---|
-|kg-nb_ICR_001|0.13968 ± 0.08848|0.28|[ICR IARC EDA_Ensemble and Stacking baseline](https://www.kaggle.com/code/tetsutani/icr-iarc-eda-ensemble-and-stacking-baseline) をコピーして作成|
-|kg-nb_ICR_002|56.3||001ベース、中身の説明追加|
+|kg-nb_ICR_001|0.13968 ± 0.08848|0.28|[ICR IARC EDA_Ensemble and 
 
 ### EXP
 
 |notebook|CV|PV|説明|
 |---|---|---|---|
 |kg-nb_ICR_exp_001||0.23|kg-nb_ICR_001をベースに、EDA用のノートブック作成|
-|kg-nb_ICR_exp_002|-|-|飛び番号|
-|kg-nb_ICR_exp_003|0.18385 ± 0.06902|0.40|001ベース、drop column変更, EDA削除|
-|kg-nb_ICR_exp_004|||[icr-identify-age](https://www.kaggle.com/code/vadimkamaev/icr-identify-age) をコピーして作成, |
-|kg-nb_ICR_exp_005_ver1|||003ベース, `drop_cols` =['BC', 'CL','BZ','DV']|
-|kg-nb_ICR_exp_005_ver2||| `drop_cols` =['BC', 'CL','BZ','DV','AR]|
-|kg-nb_ICR_exp_005_ver3|||ver2の設定のままearly_stopping_rounds = 1000 -> 10000,Early_stoppingに伴うオーバーフットを検証
-|
-early_stopping_rounds = 100000|
 
 ## LOG
 
-1920
+### 20231008
+
