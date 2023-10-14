@@ -145,3 +145,10 @@ $ x_i $ はデータ点 $ i $ の観測値。
 ### 20231011
 
 - git関連一旦まとめ
+
+### 20231014
+
+- 以下ノートをまずは眺める
+
+  - [[Optiver] Simple LGBM for beginner (Eng/日本語)](https://www.kaggle.com/code/junjitakeshima/optiver-simple-lgbm-for-beginner-eng)
+
