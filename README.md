@@ -156,23 +156,23 @@ $ x_i $ はデータ点 $ i $ の観測値。
 
 - kg-nb_optiver_001
   - 上記ノートブックの写経で内容把握
-  - stock_id                       200
-date_id                        481
-seconds_in_bucket               55
-imbalance_size             2971863
-imbalance_buy_sell_flag          3
-reference_price              28741
-matched_size               2948862
-far_price                    95739
-near_price                   84625
-bid_price                    28313
-bid_size                   2591773
-ask_price                    28266
-ask_size                   2623254
-wap                          31506
-target                       15934
-time_id                      26455
-row_id                     5237980
+stock_id                       200
+date_id                        481  
+seconds_in_bucket               55  
+imbalance_size             2971863  
+imbalance_buy_sell_flag          3  
+reference_price              28741  
+matched_size               2948862  
+far_price                    95739  
+near_price                   84625  
+bid_price                    28313  
+bid_size                   2591773  
+ask_price                    28266  
+ask_size                   2623254  
+wap                          31506  
+target                       15934  
+time_id                      26455  
+row_id                     5237980  
 dtype: int64
 
 ### 20231018
