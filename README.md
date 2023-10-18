@@ -152,3 +152,43 @@ $ x_i $ はデータ点 $ i $ の観測値。
 
   - [[Optiver] Simple LGBM for beginner (Eng/日本語)](https://www.kaggle.com/code/junjitakeshima/optiver-simple-lgbm-for-beginner-eng)
 
+### 20231015
+
+- kg-nb_optiver_001
+  - 上記ノートブックの写経で内容把握
+  - stock_id                       200
+date_id                        481
+seconds_in_bucket               55
+imbalance_size             2971863
+imbalance_buy_sell_flag          3
+reference_price              28741
+matched_size               2948862
+far_price                    95739
+near_price                   84625
+bid_price                    28313
+bid_size                   2591773
+ask_price                    28266
+ask_size                   2623254
+wap                          31506
+target                       15934
+time_id                      26455
+row_id                     5237980
+dtype: int64
+
+### 20231018
+  
+- train 相関ヒートマップで確認
+![heatmap](https://github.com/fmoch/kaggle-Optiver-Trading-at-the-Close/assets/116940479/a9ccebb3-2669-4c9f-9c19-c5b390ba6678)
+
+- 以下のカラムはそれぞれ相関が高い
+  - reference_price：ペア株が最大になり、インバランスが最小になり、ビッド・アスクの中間点からの距離が最小になる価格。ビッドとアスクの中点からの距離が最小となる価格。
+  - bid_price：ノンオークションブックで最も競争力のある買いレベルの価格。
+  - ask_price：ノンオークションブックで最も競争力のある売りレベルの価格。
+  - wap：ノン・オークション・ブックにおける加重平均価格。 
+- reference_priceはbidとaskそれぞれから求まるため、必然的に相関高くなっている
+- wapは次の式のため $\displaystyle\frac{Bidprice∗AskSize+AskPrice∗BidSize}{BidSize+AskSize}$
+  - 一方でAsk_size, Bid_sizeは相関係数0.2程度と小さい
+-以下もついで相関がお互いある
+  - near_price オークション注文と連続成行注文に基づく約定株数を最大化するクロッシング価格。
+  - imbalance_buy_sell_flag	オークションの不均衡の方向を反映する指標
+
