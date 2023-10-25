@@ -118,17 +118,17 @@ $ x_i $ はデータ点 $ i $ の観測値。
 
 |notebook|説明|
 |---|---|
-|||
+|[Summarizing our collective learnings over the past month](https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/448920)|コンペ開始から１ヶ月時点での有用な情報をまとめている、基本的にはここをベースに描く情報をそれぞれ参照する|
+|[[Optiver] Simple LGBM for beginner (Eng/日本語)](https://www.kaggle.com/code/junjitakeshima/optiver-simple-lgbm-for-beginner-eng)|すでに日本語訳のノートブック。シンプルなLGBMモデルの説明|
 |||
 
 ## NOTE
-
 
 ### nb
 
 |notebook|CV|PV|説明|
 |---|---|---|---|
-|kg-nb_ICR_001|0.13968 ± 0.08848|0.28|[ICR IARC EDA_Ensemble and 
+|kg-nb_optiver_001|||[[Optiver] Simple LGBM for beginner (Eng/日本語)](https://www.kaggle.com/code/junjitakeshima/optiver-simple-lgbm-for-beginner-eng)をコピーして作成|
 
 ### EXP
 
@@ -155,7 +155,7 @@ $ x_i $ はデータ点 $ i $ の観測値。
 ### 20231015
 
 - kg-nb_optiver_001
-  - 上記ノートブックの写経で内容把握
+  - 上記ノートブックの写経で内容把握  
 stock_id                       200
 date_id                        481  
 seconds_in_bucket               55  
@@ -176,7 +176,7 @@ row_id                     5237980
 dtype: int64
 
 ### 20231018
-  
+
 - train 相関ヒートマップで確認
 ![heatmap](https://github.com/fmoch/kaggle-Optiver-Trading-at-the-Close/assets/116940479/a9ccebb3-2669-4c9f-9c19-c5b390ba6678)
 
@@ -188,7 +188,50 @@ dtype: int64
 - reference_priceはbidとaskそれぞれから求まるため、必然的に相関高くなっている
 - wapは次の式のため $\displaystyle\frac{Bidprice∗AskSize+AskPrice∗BidSize}{BidSize+AskSize}$
   - 一方でAsk_size, Bid_sizeは相関係数0.2程度と小さい
--以下もついで相関がお互いある
+- 以下もついで相関がお互いある
   - near_price オークション注文と連続成行注文に基づく約定株数を最大化するクロッシング価格。
   - imbalance_buy_sell_flag	オークションの不均衡の方向を反映する指標
 
+### 20231022
+
+- [Summarizing our collective learnings over the past month](https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/448920)　を参照に主要な投稿を確認する。
+
+### 20231024
+
+以下訳。
+
+- 投票上位5カーネル
+
+> - <https://www.kaggle.com/code/tomforbes/optiver-trading-at-the-close-introduction>
+>   - これは投稿を構築するために使用され、APIの効果的な使用を示しています。
+> - <https://www.kaggle.com/code/ravi20076/optiver-baseline-models>
+>   - コミュニティに心から感謝する。
+> - <https://www.kaggle.com/code/yuanzhezhou/baseline-lgb-xgb-and-catboost>
+>   - この課題のためのシンプルなMLモデルの使い方を説明するもので、便利な二次機能もたくさんある。
+> - <https://www.kaggle.com/code/a27182818/explain-the-data-lightgbm-baseline>
+>   - これはシンプルなLight GBMカーネルで、コードは初心者にやさしい。
+> - <https://www.kaggle.com/code/iqbalsyahakbar/optiver-a-starter-s-notebook>
+>   - 非常に初心者に優しいスターターカーネルで、関連する説明があります。
+
+- トップ5パブリック・スコア・カーネル
+
+> - <https://www.kaggle.com/code/siddhvr/optiver-baseline-sub>
+> - <https://www.kaggle.com/code/verracodeguacas/hoarders-ensemble>
+> - <https://www.kaggle.com/code/miteshadake/lgb-baseline>
+> - <https://www.kaggle.com/code/masterray/lgb-baseline>
+> - <https://www.kaggle.com/code/leehomhuang/lgb-baseline-train>
+
+- 有用なディスカッションポスト
+
+> - <https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/448714>
+>   - 投稿のタイミングを知ることができる最近の投稿
+> - <https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/448069>
+>   - 時系列分割CV戦略の使い方を説明した非常に有用な投稿。
+> - <https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/442851>
+>   - 訓練データを使ってインデックスをリバースエンジニアリングしてみる。
+> - <https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/442453>
+>   - Kaggleのトレーディング・コンペティションについて説明している。
+> - <https://www.kaggle.com/competitions/optiver-trading-at-the-close/discussion/442632>
+>   - サブミッションAPIを使ったローリングフィーチャーの使い方について議論している。
+
+### 20231025
